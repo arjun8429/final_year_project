@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Eligibility</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'predictor/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">Blood<span>Hero</span></div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#predict">Prediction</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="btn-signin">Sign In/Up</button>
+    </header>
+
+    <section class="eligibility-form-section">
+        <div class="form-container">
+            <h1>Check Your Eligibility</h1>
+            <p>Please fill out the form below to see if you are eligible to donate blood.</p>
+            <form id="eligibility-form" action="{% url 'predict_eligibility' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="months-since-last-donation">Months since Last Donation</label>
+                    <input type="number" id="months-since-last-donation" name="months_since_last_donation" required>
+                </div>
+                <div class="form-group">
+                    <label for="number-of-donations">Number of Donations</label>
+                    <input type="number" id="number-of-donations" name="number_of_donations" required>
+                </div>
+                <div class="form-group">
+                    <label for="total-volume-donated">Total Volume Donated (c.c.)</label>
+                    <input type="number" id="total-volume-donated" name="total_volume_donated" required>
+                </div>
+                <div class="form-group">
+                    <label for="months-since-first-donation">Months since First Donation</label>
+                    <input type="number" id="months-since-first-donation" name="months_since_first_donation" required>
+                </div>
+                 <div class="form-group">
+                    <label for="allergy">Allergy (0-4)</label>
+                    <input type="number" id="allergy" name="allergy" min="0" max="4" required>
+                </div> 
+                
+                
+                <div class="form-group">
+                    <label for="disease">Disease (0-4)</label>
+                    <input type="number" id="disease" name="disease" min="0" max="4" required>
+                </div>
+                <button type="submit" class="cta eligibility-cta">Check Eligibility</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="result-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-modal">&times;</span>
+            <p id="result-message"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 BloodHero. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'predictor/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,372 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background: #fff;
+}
+
+header {
+    background: linear-gradient(135deg, #a10035 0%, #db0030 100%);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+header .logo span {
+    color: #fed7e2;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover, nav ul li a:focus {
+    color: #fed7e2;
+    transform: translateY(-2px);
+}
+
+.btn-signin {
+    background-color: #f1c40f;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-signin:hover {
+    background-color: #e1b10f;
+    transform: translateY(-2px);
+}
+
+.hero {
+    text-align: center;
+    color: white;
+    padding: 40px 20px;
+    background: url('hero-image.jpg') no-repeat center center / cover;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Adding a dark overlay for better text visibility */
+}
+
+.hero h1, .hero p {
+    position: relative;
+    z-index: 1;
+}
+
+.cta {
+    background-color: #f1c40f;
+    color: #333;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.cta:hover {
+    background-color: #e1b10f;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.how-it-works {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f7f7f7;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.step {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s;
+}
+
+.step img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+}
+
+.quotes {
+    padding: 40px 20px;
+    background: #fff;
+    text-align: center;
+}
+
+.quotes p {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.testimonials {
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.testimonials p {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.eligibility-form {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f7f7f7;
+}
+
+.eligibility-form h1 {
+    font-size: 32px;
+    color: #a10035;
+    margin-bottom: 20px;
+}
+
+.eligibility-form p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .steps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step {
+        width: 80%;
+    }
+}
+
+/* New styles for eligibility form page */
+.eligibility-form-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f7f7f7;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.form-container h1 {
+    font-size: 32px;
+    color: #a10035;
+    margin-bottom: 20px;
+}
+
+.form-container p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #a10035;
+    outline: none;
+    box-shadow: 0 0 5px rgba(161, 0, 53, 0.5);
+}
+
+
+.eligibility-cta {
+    background-color: #f1c40f;
+    color: #333;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.eligibility-cta:hover {
+    background-color: #e1b10f;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        padding: 20px;
+    }
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
