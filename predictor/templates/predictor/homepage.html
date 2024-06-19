@@ -1,4 +1,3 @@
-<!-- homepage.html -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +7,124 @@
     <title>Blood Donation Eligibility</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'predictor/styles.css' %}">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #e74c3c;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+            margin-right: auto;
+        }
+        .logo span {
+            color: #3498db;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #c0392b;
+            border-radius: 5px;
+        }
+        .hero {
+            background: url('{% static "predictor/hero-bg.jpg" %}') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+        .hero .cta {
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .hero .cta:hover {
+            background-color: #2980b9;
+        }
+        .management-section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .management-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .management-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .management-buttons button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .management-buttons button:hover {
+            background-color: #2980b9;
+        }
+        .steps, .quotes, .testimonials {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .steps .step, .quotes p, .testimonials p {
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #e74c3c;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        footer p {
+            margin: 0;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -20,14 +137,21 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <button class="btn-signin">Sign In/Up</button>
     </header>
 
     <section class="hero">
         <h1>Give Blood, Save Lives</h1>
-        <p>Your contribution can make a huge difference. Check if you're eligible to donate blood today.</p>
-        <a href="{% url 'predict_eligibility' %}"><button class="cta">Check Eligibility</button></a>
+        <p>Your contribution can make a huge difference.</p>
     </section>
+
+    <section class="management-section">
+        <h2>For Management</h2>
+        <div class="management-buttons">
+            <button onclick="window.location.href='{% url 'signup' %}'">Sign Up</button>
+            <button onclick="window.location.href='{% url 'signin' %}'">Sign In</button>
+        </div>
+    </section>
+
     <section class="how-it-works">
         <h2>How It Works</h2>
         <div class="steps">
@@ -44,18 +168,6 @@
                 <p>Choose to Donate</p>
             </div>
         </div>
-    </section>
-
-    <section class="quotes">
-        <h2>Inspirational Quotes</h2>
-        <p>"The gift of blood is the gift of life. There is no substitute for human blood." - Richard M. Nixon</p>
-        <p>"A single pint can save three lives, a single gesture can create a million smiles." - Unknown</p>
-    </section>
-
-    <section class="testimonials">
-        <h2>What Donors Say</h2>
-        <p>"I never knew how easy it was to help save lives until I donated blood through BloodHero. It was quick, easy, and fulfilling!" - Jane Doe</p>
-        <p>"The eligibility check was seamless, and the staff were wonderfully supportive. Highly recommend this experience!" - John Smith</p>
     </section>
 
     <footer>

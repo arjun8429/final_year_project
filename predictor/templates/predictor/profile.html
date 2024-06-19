@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Blood Donation Eligibility</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'predictor/styles.css' %}">
+    <style>
+        .profile-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f39c12; /* Adjust the color as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1000; /* Ensure it stays above other elements */
+        }
+        .profile-icon:hover {
+            transform: scale(1.1);
+            background-color: #e67e22; /* Slightly darker shade */
+        }
+        .profile-icon:active {
+            transform: scale(0.9);
+            background-color: #d35400; /* Even darker shade for active state */
+        }
+        .profile-icon img {
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1001; /* Ensure it stays above the profile icon */
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: black;
+            text-decoration: none;
+        }
+        .dropdown-menu a:hover {
+            background-color: #f39c12;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Blood<span>Hero</span></div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="{% url 'predict_eligibility' %}">Prediction</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="profile-icon" onclick="toggleDropdown()">
+            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="Profile">
+            <div class="dropdown-menu" id="dropdown-menu">
+                <a href="{% url 'Logout' %}">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome, {{ user.username }}!</h1>
+        <p>Your contribution can make a huge difference. Check if you're eligible to donate blood today.</p>
+        <a href="{% url 'predict_eligibility' %}"><button class="cta">Check Eligibility</button></a>
+    </section>
+
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <img src="{% static 'predictor/enter-details.png' %}" alt="Enter Details">
+                <p>Enter Your Details</p>
+            </div>
+            <div class="step">
+                <img src="{% static 'predictor/prediction.png' %}" alt="Instant Prediction">
+                <p>Instant Prediction</p>
+            </div>
+            <div class="step">
+                <img src="{% static 'predictor/donate.png' %}" alt="Choose to Donate">
+                <p>Choose to Donate</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="quotes">
+        <h2>Inspirational Quotes</h2>
+        <p>"The gift of blood is the gift of life. There is no substitute for human blood." - Richard M. Nixon</p>
+        <p>"A single pint can save three lives, a single gesture can create a million smiles." - Unknown</p>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Donors Say</h2>
+        <p>"I never knew how easy it was to help save lives until I donated blood through BloodHero. It was quick, easy, and fulfilling!" - Jane Doe</p>
+        <p>"The eligibility check was seamless, and the staff were wonderfully supportive. Highly recommend this experience!" - John Smith</p>
+    </section>
+
+    <footer>
+        <p>© 2023 BloodHero. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'predictor/script.js' %}"></script>
+    <script>
+        function toggleDropdown() {
+            var menu = document.getElementById('dropdown-menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.profile-icon') && !event.target.matches('.profile-icon img')) {
+                var dropdowns = document.getElementsByClassName('dropdown-menu');
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

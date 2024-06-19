@@ -6,7 +6,7 @@ body, html {
     padding: 0;
     font-family: 'Poppins', sans-serif;
     color: #333;
-    background: #fff;
+    background: #f0f2f5;
 }
 
 header {
@@ -185,6 +185,7 @@ nav ul li a:hover, nav ul li a:focus {
 
 .form-group {
     margin-bottom: 20px;
+    text-align: left;
 }
 
 .form-group label {
@@ -197,13 +198,21 @@ nav ul li a:hover, nav ul li a:focus {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 20px;
+    background: #f5f7fa;
     font-size: 16px;
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
 .form-group textarea {
     resize: vertical;
     height: 100px;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    background: #fff;
+    box-shadow: 0 0 5px rgba(161, 0, 53, 0.5);
+    outline: none;
 }
 
 footer {
@@ -245,7 +254,7 @@ footer {
 .form-container {
     max-width: 600px;
     margin: 0 auto;
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -268,10 +277,6 @@ footer {
     margin-bottom: 20px;
     text-align: left;
 }
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
 
 .form-group label {
     display: block;
@@ -283,16 +288,17 @@ footer {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 20px;
+    background: #f5f7fa;
     font-size: 16px;
+    transition: background 0.3s, box-shadow 0.3s;
 }
 
 .form-group input:focus, .form-group textarea:focus {
-    border-color: #a10035;
-    outline: none;
+    background: #fff;
     box-shadow: 0 0 5px rgba(161, 0, 53, 0.5);
+    outline: none;
 }
-
 
 .eligibility-cta {
     background-color: #f1c40f;
@@ -369,4 +375,15 @@ footer {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Background image and form overlay */
+body {
+    background: url('static/predictor/backpic.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
 }
